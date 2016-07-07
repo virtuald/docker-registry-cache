@@ -18,7 +18,9 @@ SSL-enabled squid
 You must have an SSL-enabled version of squid. Currently, Ubuntu's squid
 package is not ssl enabled due to licensing issues. To build your own, do this:
 
-    build-squid/make.sh
+```console
+$ build-squid/make.sh
+```
   
 After about 30 minutes or so, you should have a bunch of deb packages in
 the `build-squid` directory.
@@ -35,19 +37,40 @@ First, copy squid.conf.template to squid.conf, and change the variables.
 
 Next, build the image:
 
-    ./build.sh
+```console
+$ ./build.sh
+```
     
-Usage
+Setup
 =====
 
 * Create an empty directory for your cache.
 * Create a directory for your SSL certificates, and place them in a directory,
   with the certificate called 'cert.pem' and the private key called 'key.pem'
 
-    ./run.sh /path/to/ssl /path/to/cache
+```console
+$ ./run.sh /path/to/ssl /path/to/cache
+```
 
 The registry will start, and be listening on port 443. It should restart on
 bootup if your docker daemon is running.
+
+Using the cache
+===============
+
+Once the registry cache starts, you pull from it like you would pull from a
+normal docker registry -- but you pull from the cache hostname, not your
+original private registry hostname!
+
+```console
+$ docker pull CACHE_HOST/foo/bar:latest
+```
+
+Bugs
+====
+
+I'm sure this isn't ideal, but it seems to work. Submit issues and PRs!
+
 
 Author
 ======
