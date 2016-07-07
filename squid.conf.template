@@ -1,0 +1,14 @@
+https_port 443 accel defaultsite={{ docker_host }} no-vhost cert=/etc/ssl/private/cert.pem key=/etc/ssl/private/key.pem
+
+maximum_object_size 8 GB
+range_offset_limit 8 GB
+quick_abort_min -1
+cache_dir ufs /cache/cc {{ cache_size }} 16 256
+
+cache_peer {{ docker_host }} parent 443 0 no-query originserver no-digest name=upstream ssl sslflags=DONT_VERIFY_PEER
+
+acl site dstdomain {{ docker_host }}
+http_access allow site
+cache_peer_access upstream allow site
+cache_peer_access upstream deny all
+cache allow site
