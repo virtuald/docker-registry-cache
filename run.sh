@@ -10,5 +10,5 @@ CACHE_DIRECTORY="$2"
 
 docker run -d --restart=always -p 443:443 --name registry-cache \
 	-v ${SSL_DIRECTORY}:/etc/ssl/private \
-	-v ${CACHE_DIRECTORY}/cache \
+	-v ${CACHE_DIRECTORY}:/cache \
 	registry-cache:latest
