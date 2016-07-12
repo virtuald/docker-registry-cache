@@ -1,5 +1,9 @@
 https_port 443 accel defaultsite={{ docker_host }} no-vhost cert=/etc/ssl/private/cert.pem key=/etc/ssl/private/key.pem
 
+# Uncomment this if you're having caching issues... the logfile is
+# written to /var/log/squid/cache.log
+#debug_options ALL,2
+
 maximum_object_size 8 GB
 range_offset_limit 8 GB
 quick_abort_min -1
