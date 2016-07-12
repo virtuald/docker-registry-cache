@@ -6,6 +6,14 @@ Squid HTTP proxy.
 
 **WARNING**: This only works with docker registry v2!
 
+What is this useful for?
+------------------------
+
+Bottom line, it's a HTTP cache. 
+
+* Data center A contains your private registry, and DC B is connected to it over a slow link. Run an instance of this cache on DC B's network, and anytime you pull from it the second time will be significantly faster since you don't have to traverse that slow link as much!
+* I'm sure there are other usecases..
+
 Requirements
 ============
 
