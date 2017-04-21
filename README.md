@@ -4,7 +4,7 @@ docker-registry-cache
 This is a pull-through docker private registry cache implemented using a
 Squid HTTP proxy.
 
-**WARNING**: This only works with the modern docker registry API (v2+). This will not work with legacy docker v1 registries. 
+**WARNING**: This only works with the modern [docker registry API (v2+)](https://docs.docker.com/registry/spec/api/). This will not work with docker registries that use the legacy v1 API. 
 
 What is this useful for?
 ------------------------
