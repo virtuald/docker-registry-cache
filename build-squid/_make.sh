@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+#### ensure deb-src is enabled
+sed -i 's/^#\s*\(deb-src.*main.*\)$/\1/g' /etc/apt/sources.list
+
 cd /build
 
 apt-get update
