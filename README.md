@@ -79,6 +79,11 @@ Bugs
 
 I'm sure this isn't ideal, but it seems to work. Submit issues and PRs!
 
+License
+=======
+
+The contents of this repository are available under the Apache v2 license. 
+
 
 Author
 ======
