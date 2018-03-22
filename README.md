@@ -74,6 +74,16 @@ original private registry hostname!
 $ docker pull CACHE_HOST/foo/bar:latest
 ```
 
+Registry authentication
+-----------------------
+
+https://github.com/virtuald/docker-registry-cache/pull/7 added a configuration option
+to squid that passes basic authentication thru to the remote registry. This should
+work without any further configuration.
+
+It is unknown if other authentication schemes will work with this cache. Feel free
+to try it out and leave a note with what you find out!
+
 Bugs
 ====
 
